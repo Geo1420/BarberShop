@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">BarberShop</string>
+    <string name="logo_imageView">logo</string>
+    <string name="main_welcome_text">Welcome to</string>
+    <string name="main_login_button">LOGIN</string>
+    <string name="main_register_button">REGISTER</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="email">Email*</string>
+    <string name="enter_full_name">Enter full name</string>
+    <string name="full_name">Full Name*</string>
+    <string name="details">Please enter your details to Register on the App</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="password">Password*</string>
+    <string name="mobile">Mobile*</string>
+    <string name="enter_your_mobile_number">Enter your mobile number</string>
+    <string name="confirm_password">Confirm password*</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="register">Register</string>
+    <string name="login_with_your_account">Login with your account</string>
+    <string name="login">LOGIN</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="profile_save_changes_button">Save changes</string>
+    <string name="go_to_register">GO to Register</string>
+    <string name="back_profile_button">Back</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_email">name_name</string>
+    <string name="camera_select_button">Select</string>
+    <string name="profile_full_name_text_view">Full Name</string>
+    <string name="profile_full_name_editText">Full name field</string>
+    <string name="profile_email_textView">Email</string>
+    <string name="profile_phone_textView">Phone</string>
+    <string name="profile_pic">profile_pic</string>
+    <string name="address">Address:</string>
+    <string name="program">Program:</string>
+    <string name="barber">Barber:</string>
+    <string name="haircut_time">Haircut time:</string>
+    <string name="your_booking_information">Your Booking information</string>
+    <string name="strada_petre_ispirescu_36_craiova">Strada Petre Ispirescu 36, Craiova</string>
+    <string name="notification">Notification</string>
+    <string name="book">Book</string>
+    <string name="history">History</string>
+    <string name="david">David</string>
+    <string name="_1_hour">1 hour</string>
+    <string name="mon_sat_9am_5pm">Mon-Sat 9am-5pm</string>
+    <string name="profile">Profile</string>
+</resources>

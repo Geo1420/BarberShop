@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/purple_200"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/white">
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="?attr/homeAsUpIndicator"
+            android:text="@string/back_profile_button"
+            android:background="@color/purple_200"
+            android:shadowColor="#FFFFFF"
+            android:textColor="#000000"
+            />
+
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="367dp"
+            android:layout_height="186dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/logo_imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/login_head_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo_imageView"
+            android:text="Choose date and time"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/select_date_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textSize="30sp"
+            android:layout_below="@+id/login_head_textView"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:id="@+id/date_picker_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/select_date_textView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="80dp"
+            android:text="Jan 01 2023"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/select_time_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Time"
+            android:textSize="30sp"
+            android:layout_below="@+id/date_picker_button"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:id="@+id/time_picker_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/select_time_textView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="80dp"
+            android:text="10:00pm"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+
+
+
+
+        <Button
+            android:id="@+id/appointment_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time_picker_button"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="70dp"
+            android:background="@color/purple_200"
+            android:text="Book now"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            tools:ignore="VisualLintButtonSize" />
+
+    </RelativeLayout>
+</ScrollView>

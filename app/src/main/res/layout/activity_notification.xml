@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_200"
+    tools:context=".NotificationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:padding="15dp"
+        android:layout_margin="15dp"
+        android:background="@color/white">
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="?attr/homeAsUpIndicator"
+            android:text="@string/back_profile_button"
+            android:background="@color/purple_200"
+            android:shadowColor="#FFFFFF"
+            android:textColor="#000000"
+            />
+
+        <ImageView
+            android:id="@+id/logo_imageView"
+            android:layout_width="367dp"
+            android:layout_height="186dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/logo_imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/login_head_textView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/logo_imageView"
+            android:text="Notifications"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reminder_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_head_textView"
+            android:layout_marginTop="20dp"
+            android:padding="6dp"
+            android:text="Reminder:"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:drawableStartCompat="@android:drawable/presence_away" />
+
+        <TextView
+            android:id="@+id/register_full_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_head_textView"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/reminder_textView"
+            android:padding="6dp"
+            android:text="Jan 01 2023    10:30"
+
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
