@@ -14,7 +14,7 @@
         android:background="@color/purple_200">
 
         <Button
-            android:id="@+id/back_button"
+            android:id="@+id/profile_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="?attr/homeAsUpIndicator"
