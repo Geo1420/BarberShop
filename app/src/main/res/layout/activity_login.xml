@@ -98,12 +98,12 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="70dp"
-            android:background="@color/purple_200"
+            android:background="@drawable/purple_border"
             android:onClick="loginAccount"
             android:text="@string/login"
-            android:textColor="#5E35B1"
+            android:textColor="#000000"
             android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="UsingOnClickInXml,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/login_register_button"
@@ -113,10 +113,11 @@
             android:layout_marginLeft="70dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="70dp"
-            android:background="@color/purple_200"
+            android:background="@drawable/purple_border"
             android:text="@string/go_to_register"
-            android:textColor="#5E35B1"
+            android:textColor="#000000"
             android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
+            android:onClick="goToRegisterActivity"
+            tools:ignore="UsingOnClickInXml,VisualLintButtonSize" />
     </RelativeLayout>
 </ScrollView>

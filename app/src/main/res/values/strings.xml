@@ -31,7 +31,7 @@
     <string name="back_profile_button">Back</string>
     <string name="profile_name">Name</string>
     <string name="profile_email">name_name</string>
-    <string name="camera_select_button">Select</string>
+    <string name="camera_select_button">Tap</string>
     <string name="profile_full_name_text_view">Full Name</string>
     <string name="profile_full_name_editText">Full name field</string>
     <string name="profile_email_textView">Email</string>
@@ -45,9 +45,27 @@
     <string name="strada_petre_ispirescu_36_craiova">Strada Petre Ispirescu 36, Craiova</string>
     <string name="notification">Notification</string>
     <string name="book">Book</string>
-    <string name="history">History</string>
+    <string name="history">Historic</string>
     <string name="david">David</string>
     <string name="_1_hour">1 hour</string>
     <string name="mon_sat_9am_5pm">Mon-Sat 9am-5pm</string>
     <string name="profile">Profile</string>
+    <string name="log_out_button">OUT</string>
+    <string name="logo_home_page">Logo Home Page</string>
+    <string name="book_now_button">Book now</string>
+    <string name="appointment_history">Appointment history</string>
+    <string name="reminder">Reminder:</string>
+    <string name="notifications">Notifications</string>
+    <string name="choose_date_and_time">Choose date and time</string>
+    <string name="select_date_textView">Select Date</string>
+    <string name="select_date_button">Jan 01 2023</string>
+    <string name="select_time">Select Time</string>
+    <string name="select_time_button">10:00pm</string>
+    <string name="appointment_textView">Appointment</string>
+    <string name="appointment_date_textView">Jan 01 2023</string>
+    <string name="appointment_time_textView">10:30</string>
+    <string name="reminder_date_textView">Jan 01 2023</string>
+    <string name="reminder_time_textView">10:30</string>
+    <string name="profile_email_editText">email@yahoo.com</string>
+    <string name="profile_phone_editText">0712345678</string>
 </resources>

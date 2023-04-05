@@ -5,68 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-    android:background="@color/grey">
+    android:background="@color/purple_200">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/historic_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/border"
-        android:drawableTop="@android:drawable/ic_menu_recent_history"
+        android:drawableTop="@drawable/ic_history"
         android:text="@string/history"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:onClick="loadHistoricActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/book_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateClickableBoundsCheck,UsingOnClickInXml" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/book_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/border"
-        android:drawableTop="@android:drawable/ic_menu_today"
+        android:drawableTop="@drawable/ic_appoinment"
         android:text="@string/book"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:onClick="loadBookActivity"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/notification_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/border"
-        android:drawableTop="@android:drawable/ic_popup_reminder"
+        android:drawableTop="@drawable/ic_notification"
         android:text="@string/notification"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:onClick="loadNotificationActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/historic_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/profile_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/border"
-        android:drawableTop="@android:drawable/ic_menu_my_calendar"
+        android:drawableTop="@drawable/ic_profile"
         android:text="@string/profile"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:onClick="loadProfileActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/notification_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
     <ImageView
         android:id="@+id/logo_imageView"
@@ -90,7 +98,8 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/home_booking_info"
@@ -217,20 +226,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         app:srcCompat="@drawable/barber5"
-        android:contentDescription="TODO" />
+        android:background="@drawable/border"
+        android:contentDescription="@string/logo_home_page" />
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="65dp"
         android:layout_height="48dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="7dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/border"
+        android:background="@color/white"
         android:drawableStart="@android:drawable/ic_lock_power_off"
-        android:text="OUT"
+        android:text="@string/log_out_button"
         android:textColor="@color/black"
+        android:onClick="logOut"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UsingOnClickInXml" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
