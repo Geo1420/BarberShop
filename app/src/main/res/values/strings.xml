@@ -31,7 +31,7 @@
     <string name="back_profile_button">Back</string>
     <string name="profile_name">Name</string>
     <string name="profile_email">name_name</string>
-    <string name="camera_select_button">Tap</string>
+    <string name="camera_select_button">CAMERA</string>
     <string name="profile_full_name_text_view">Full Name</string>
     <string name="profile_full_name_editText">Full name field</string>
     <string name="profile_email_textView">Email</string>

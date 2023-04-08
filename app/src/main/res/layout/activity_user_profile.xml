@@ -56,15 +56,15 @@
             android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/profile_photo_button"
-            android:layout_width="50dp"
+            android:id="@+id/profile_camera_button"
+            android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_below="@+id/profile_image"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/border"
-            android:drawableBottom="@drawable/ic_profile_camera"
+            android:drawableRight="@drawable/ic_profile_camera"
             android:text="@string/camera_select_button" />
 
     </RelativeLayout>
