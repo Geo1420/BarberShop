@@ -90,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
             etRepPassword.setError("Password not the same");
             etRepPassword.requestFocus();
         }else {
-            registerUser(textEmail, textMobile);
+            registerUser(textEmail, textPassword);
         }
     }
 
