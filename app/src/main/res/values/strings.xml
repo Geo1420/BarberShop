@@ -6,8 +6,8 @@
     <string name="main_register_button">REGISTER</string>
     <string name="enter_your_password">Enter your password</string>
     <string name="email">Email*</string>
-    <string name="enter_full_name">Enter full name</string>
-    <string name="full_name">Full Name*</string>
+    <string name="enter_full_name">Enter your last name</string>
+    <string name="last_name">Last Name*</string>
     <string name="details">Please enter your details to Register on the App</string>
     <string name="enter_your_email">Enter your Email</string>
     <string name="password">Password*</string>
@@ -42,12 +42,12 @@
     <string name="barber">Barber:</string>
     <string name="haircut_time">Haircut time:</string>
     <string name="your_booking_information">Your Booking information</string>
-    <string name="strada_petre_ispirescu_36_craiova">Strada Petre Ispirescu 36, Craiova</string>
+    <string name="address_textView">Strada Petre Ispirescu 36, Craiova</string>
     <string name="notification">Notification</string>
     <string name="book">Book</string>
     <string name="history">Historic</string>
     <string name="david">David</string>
-    <string name="_1_hour">1 hour</string>
+    <string name="haircut_duration">1 hour</string>
     <string name="mon_sat_9am_5pm">Mon-Sat 9am-5pm</string>
     <string name="profile">Profile</string>
     <string name="log_out_button">OUT</string>
@@ -68,4 +68,7 @@
     <string name="reminder_time_textView">10:30</string>
     <string name="profile_email_editText">email@yahoo.com</string>
     <string name="profile_phone_editText">0712345678</string>
+    <string name="first_name">First name*</string>
+    <string name="enter_your_first_name">Enter your first name</string>
+    <string name="go_to_login">Go to Login</string>
 </resources>

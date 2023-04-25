@@ -45,15 +45,6 @@
             android:textSize="20sp"
             android:textStyle="bold|italic" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/full_name_profile"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/profile_image"
-            android:text="@string/profile_email"
-            android:textColor="#5E35B1"
-            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/profile_camera_button"

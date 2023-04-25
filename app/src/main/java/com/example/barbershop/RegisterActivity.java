@@ -1,147 +1,131 @@
 package com.example.barbershop;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText registerEditTextFullName, registerEditTextEmail,registerEditTextPwd,registerEditTextConfirmPwd,
-            registerEditTextMobile;
+    private EditText etFirstName, etLastName,etEmail;
+    private EditText etPhone, etPassword, etRepPassword;
+    private FirebaseAuth authUser;
+    private FirebaseFirestore fStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerEditTextFullName = findViewById(R.id.register_full_name_editText);
-        registerEditTextEmail = findViewById(R.id.register_email_editText);
-        registerEditTextPwd = findViewById(R.id.register_password_editText);
-        registerEditTextConfirmPwd = findViewById(R.id.register_confirm_password_editText);
-        registerEditTextMobile = findViewById(R.id.register_phone_editText);
+        etFirstName = findViewById(R.id.register_first_name_editText);
+        etLastName = findViewById(R.id.register_last_name_editText);
+        etEmail = findViewById(R.id.register_email_editText);
+        etPhone = findViewById(R.id.register_phone_editText);
+        etPassword = findViewById(R.id.register_password_editText);
+        etRepPassword = findViewById(R.id.register_confirm_password_editText);
+
 
         Button buttonRegister = findViewById(R.id.register_button);
+        buttonRegister.setOnClickListener(view -> {
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            //Obtain the entered data
+            String textFirstName = etFirstName.getText().toString();
+            String textLastName = etLastName.getText().toString();
+            String textEmail = etEmail.getText().toString();
+            String textMobile = etPhone.getText().toString();
+            String textPassword = etPassword.getText().toString();
+            String textConfirmPwd = etRepPassword.getText().toString();
 
-                //Obtain the entered data
-                String textFullName = registerEditTextFullName.getText().toString();
-                String textEmail = registerEditTextEmail.getText().toString();
-                String textMobile = registerEditTextMobile.getText().toString();
-                String textPassword = registerEditTextPwd.getText().toString();
-                String textConfirmPwd = registerEditTextConfirmPwd.getText().toString();
+            //verify if the fields are empty
+            verifyInputFields(textFirstName,textLastName, textEmail, textMobile, textPassword, textConfirmPwd);
 
-                //verify if the fields are empty
-                verifyInputFields(textFullName, textEmail, textMobile, textPassword, textConfirmPwd);
-
-            }
         });
     }
-
-    private void verifyInputFields(String textFullName, String textEmail, String textMobile, String textPassword, String textConfirmPwd)
+    private void verifyInputFields(String textFirstName,String textLastName, String textEmail, String textMobile, String textPassword, String textConfirmPwd)
     {
-        if(TextUtils.isEmpty(textFullName)) {
-            Toast.makeText(RegisterActivity.this, "Please enter your full name", Toast.LENGTH_SHORT).show();
-            registerEditTextFullName.setError("Required field");
-            registerEditTextFullName.requestFocus();
-        }else if(TextUtils.isEmpty(textEmail)){
+        if(TextUtils.isEmpty(textFirstName)) {
+            Toast.makeText(RegisterActivity.this, "Please enter your first name", Toast.LENGTH_SHORT).show();
+            etFirstName.setError("Required field");
+            etFirstName.requestFocus();
+        }else if(TextUtils.isEmpty(textLastName)){
+            Toast.makeText(RegisterActivity.this, "Please enter last email", Toast.LENGTH_SHORT).show();
+            etLastName.setError("Required field");
+            etLastName.requestFocus();
+        } else if(TextUtils.isEmpty(textEmail)){
             Toast.makeText(RegisterActivity.this, "Please enter your email", Toast.LENGTH_SHORT).show();
-            registerEditTextEmail.setError("Required field");
-            registerEditTextEmail.requestFocus();
+            etEmail.setError("Required field");
+            etEmail.requestFocus();
         }
         else if(TextUtils.isEmpty(textPassword)){
             Toast.makeText(RegisterActivity.this, "Please enter your password", Toast.LENGTH_SHORT).show();
-            registerEditTextPwd.setError("Required field");
-            registerEditTextPwd.requestFocus();
+            etPassword.setError("Required field");
+            etPassword.requestFocus();
         }
         else if(TextUtils.isEmpty(textConfirmPwd)){
             Toast.makeText(RegisterActivity.this, "Please confirm your password", Toast.LENGTH_SHORT).show();
-            registerEditTextConfirmPwd.setError("Required field");
-            registerEditTextConfirmPwd.requestFocus();
+            etRepPassword.setError("Required field");
+            etRepPassword.requestFocus();
         }else if(TextUtils.isEmpty(textMobile)){
             Toast.makeText(RegisterActivity.this, "Please enter your phone number", Toast.LENGTH_SHORT).show();
-            registerEditTextMobile.setError("Required field");
-            registerEditTextMobile.requestFocus();
+            etPhone.setError("Required field");
+            etPhone.requestFocus();
         }else if(textMobile.length() != 10){
             Toast.makeText(RegisterActivity.this, "Please re-enter your phone number", Toast.LENGTH_SHORT).show();
-            registerEditTextMobile.setError("Required 10 digits");
-            registerEditTextMobile.requestFocus();
+            etPhone.setError("Required 10 digits");
+            etPhone.requestFocus();
         }else if(!textPassword.equals(textConfirmPwd)){
             Toast.makeText(RegisterActivity.this, "Password not the same", Toast.LENGTH_SHORT).show();
-            registerEditTextConfirmPwd.setError("Password not the same");
-            registerEditTextConfirmPwd.requestFocus();
+            etRepPassword.setError("Password not the same");
+            etRepPassword.requestFocus();
         }else {
-            registerUser(textFullName, textEmail, textMobile, textPassword, textConfirmPwd);
+            registerUser(textEmail, textMobile);
         }
     }
 
-    private void registerUser(String textFullName, String textEmail, String textMobile, String textPassword, String textConfirmPwd)
+    private void registerUser( String textEmail, String textPassword)
     {
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.createUserWithEmailAndPassword(textEmail,textPassword).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    FirebaseUser firebaseUser = auth.getCurrentUser();
-                    //Enter user data into Firebase
-                    ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(textFullName, textEmail,textMobile);
-                    //Extracting user reference from database
-                    DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
-                    referenceProfile.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+        authUser = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
-                            if(task.isSuccessful()) {
-                                Toast.makeText(RegisterActivity.this,"User registered successfully", Toast.LENGTH_SHORT).show();
-                                firebaseUser.sendEmailVerification();
-                                //Open User profile after successful reg
-                                Intent intent = new Intent(RegisterActivity.this, UserProfileActivity.class);
-                                //prevent user from returning back to Register Activity on pressing back button after registration
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
-                            }else{
-                                Toast.makeText(RegisterActivity.this,"User registered failed", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }else{
-                    try {
-                        throw  task.getException();
-                    }catch (FirebaseAuthWeakPasswordException e){
-                        registerEditTextPwd.setError("Weak password");
-                        registerEditTextPwd.requestFocus();
-                    }catch (FirebaseAuthInvalidCredentialsException e){
-                        registerEditTextEmail.setError("Email invalid");
-                        registerEditTextEmail.requestFocus();
-                    }catch (FirebaseAuthUserCollisionException e){
-                        registerEditTextEmail.setError("This account already exists.");
-                        registerEditTextEmail.requestFocus();
-                    } catch (Exception e) {
-                        Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
+        authUser.createUserWithEmailAndPassword(textEmail,textPassword).addOnSuccessListener(authResult -> {
+            //called when a user is created successfully
+            FirebaseUser user = authUser.getCurrentUser();
+            Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
+            DocumentReference documentReference = fStore.collection("users").document(user.getUid());
+            //store the data
+            Map<String,Object> userInfo = new HashMap<>();
+            userInfo.put("firstName",etFirstName.getText().toString());
+            userInfo.put("lastName", etLastName.getText().toString());
+            userInfo.put("email", etEmail.getText().toString());
+            userInfo.put("phone", etPhone.getText().toString());
+            userInfo.put("purl", "null");
+            userInfo.put("isUser", "1");
+            documentReference.set(userInfo);
+            Intent goToLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(goToLoginIntent);
+            finish();
+        }).addOnFailureListener(e -> {
+            Toast.makeText(RegisterActivity.this, "Account already taken!", Toast.LENGTH_SHORT).show();
+            Intent goToLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(goToLoginIntent);
+            finish();
         });
+    }
+
+    public void goToLogin(View view) {
+        Intent goToLoginIntent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(goToLoginIntent);
     }
 }

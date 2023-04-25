@@ -23,19 +23,45 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/register_full_name_textView"
+            android:id="@+id/register_first_name_textView"
             android:layout_below="@+id/register_head_textView"
-            android:text="@string/full_name"
+            android:text="@string/first_name"
             android:textColor="#000000"
             android:textSize="16sp"
             android:padding="6dp"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/register_full_name_editText"
+            android:id="@+id/register_first_name_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/register_full_name_textView"
+            android:layout_below="@+id/register_first_name_textView"
+            android:autofillHints=""
+            android:background="@drawable/border"
+            android:hint="@string/enter_your_first_name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="6dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="16sp"
+            tools:ignore="VisualLintTextFieldSize" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_last_name_textView"
+            android:layout_below="@+id/register_first_name_editText"
+            android:text="@string/last_name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:padding="6dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/register_last_name_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_last_name_textView"
             android:autofillHints=""
             android:background="@drawable/border"
             android:hint="@string/enter_full_name"
@@ -51,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/register_email_textView"
-            android:layout_below="@+id/register_full_name_editText"
+            android:layout_below="@+id/register_last_name_editText"
             android:text="@string/email"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -163,6 +189,20 @@
             android:background="@drawable/purple_border"
             android:text="@string/register"
             android:textColor="#000000"
+            android:textStyle="bold"
+            tools:ignore="VisualLintButtonSize" />
+        <Button
+            android:id="@+id/go_to_login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/register_button"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="70dp"
+            android:background="@drawable/purple_border"
+            android:text="@string/go_to_login"
+            android:textColor="#000000"
+            android:onClick="goToLogin"
             android:textStyle="bold"
             tools:ignore="VisualLintButtonSize" />
 

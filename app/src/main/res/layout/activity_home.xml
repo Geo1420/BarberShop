@@ -7,39 +7,8 @@
     tools:context=".HomeActivity"
     android:background="@color/purple_200">
 
-    <Button
-        android:id="@+id/historic_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border"
-        android:drawableTop="@drawable/ic_history"
-        android:text="@string/history"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:onClick="loadHistoricActivity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toEndOf="@+id/book_button"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="DuplicateClickableBoundsCheck,UsingOnClickInXml" />
 
-    <Button
-        android:id="@+id/book_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border"
-        android:drawableTop="@drawable/ic_appoinment"
-        android:text="@string/book"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:onClick="loadBookActivity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UsingOnClickInXml" />
-
+    <!--
     <Button
         android:id="@+id/notification_button"
         android:layout_width="wrap_content"
@@ -56,6 +25,39 @@
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toEndOf="@+id/historic_button"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" /> -->
+
+    <Button
+        android:id="@+id/historic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:drawableTop="@drawable/ic_history"
+        android:onClick="loadHistoricActivity"
+        android:text="@string/history"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toEndOf="@+id/book_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateClickableBoundsCheck,UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/book_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:drawableTop="@drawable/ic_appoinment"
+        android:onClick="loadBookActivity"
+        android:text="@string/book"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UsingOnClickInXml" />
 
     <Button
@@ -64,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/border"
         android:drawableTop="@drawable/ic_profile"
         android:onClick="loadProfileActivity"
@@ -72,7 +75,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/notification_button"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UsingOnClickInXml" />
 
@@ -134,7 +136,7 @@
             android:layout_marginStart="90dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="5sp"
-            android:text="@string/strada_petre_ispirescu_36_craiova"
+            android:text="@string/address_textView"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -185,7 +187,7 @@
             android:layout_marginStart="115dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5sp"
-            android:text="@string/_1_hour"
+            android:text="@string/haircut_duration"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
