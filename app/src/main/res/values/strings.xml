@@ -32,8 +32,8 @@
     <string name="profile_name">Name</string>
     <string name="profile_email">name_name</string>
     <string name="camera_select_button">CAMERA</string>
-    <string name="profile_full_name_text_view">Full Name</string>
-    <string name="profile_full_name_editText">Full name field</string>
+    <string name="profile_full_name_text_view">First Name</string>
+    <string name="profile_full_name_editText">First name field</string>
     <string name="profile_email_textView">Email</string>
     <string name="profile_phone_textView">Phone</string>
     <string name="profile_pic">profile_pic</string>
@@ -71,4 +71,6 @@
     <string name="first_name">First name*</string>
     <string name="enter_your_first_name">Enter your first name</string>
     <string name="go_to_login">Go to Login</string>
+    <string name="profile_last_name_textView">Last Name</string>
+    <string name="profile_last_name_editText">Last Name Field</string>
 </resources>

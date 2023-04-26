@@ -34,7 +34,7 @@
             android:contentDescription="@string/profile_pic" />
 
         <TextView
-            android:id="@+id/full_name_profile"
+            android:id="@+id/first_name_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -46,6 +46,20 @@
             android:textStyle="bold|italic" />
 
 
+        <TextView
+            android:id="@+id/last_name_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first_name_profile"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@+id/profile_image"
+            android:text="@string/profile_name"
+            android:textColor="#5E35B1"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
         <Button
             android:id="@+id/profile_camera_button"
             android:layout_width="100dp"
@@ -55,7 +69,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/border"
-            android:drawableRight="@drawable/ic_profile_camera"
+            android:drawableEnd="@drawable/ic_profile_camera"
             android:text="@string/camera_select_button" />
 
     </RelativeLayout>
@@ -66,20 +80,20 @@
         android:padding="10sp">
 
         <TextView
-            android:id="@+id/profile_full_name_textView"
+            android:id="@+id/profile_fist_name_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:padding="6dp"
             android:text="@string/profile_full_name_text_view"
             android:textColor="#000000"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/profile_full_name_editText"
+            android:id="@+id/profile_first_name_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_full_name_textView"
+            android:layout_below="@+id/profile_fist_name_textView"
             android:autofillHints=""
             android:background="@drawable/border"
             android:inputType="textPersonName"
@@ -88,29 +102,55 @@
             android:text="@string/profile_full_name_editText"
             android:textSize="16sp"
             tools:ignore="LabelFor,VisualLintTextFieldSize" />
+        <TextView
+            android:id="@+id/profile_last_name_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"
+            android:layout_below="@+id/profile_first_name_editText"
+            android:text="@string/profile_last_name_textView"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/profile_last_name_editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_last_name_textView"
+            android:autofillHints=""
+            android:background="@drawable/border"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="6dp"
+            android:text="@string/profile_last_name_editText"
+            android:textSize="16sp"
+            tools:ignore="LabelFor,VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/profile_email_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_full_name_editText"
+            android:layout_below="@+id/profile_last_name_editText"
             android:layout_marginTop="10dp"
             android:padding="6dp"
             android:text="@string/profile_email_textView"
             android:textColor="#000000"
             android:textSize="16sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/profile_email_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profile_email_textView"
             android:autofillHints=""
             android:background="@drawable/border"
-            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="6dp"
             android:text="@string/profile_email_editText"
+            android:textAlignment="inherit"
+            android:textAllCaps="false"
+            android:textColor="#000000"
             android:textColorHint="#757575"
             android:textSize="16sp"
             tools:ignore="LabelFor,VisualLintTextFieldSize" />
@@ -152,6 +192,7 @@
             android:background="@drawable/purple_border"
             android:text="@string/profile_save_changes_button"
             android:textColor="@color/black"
+            android:onClick="saveUserProfile"
             android:textStyle="bold"
             tools:ignore="VisualLintButtonSize" />
 
