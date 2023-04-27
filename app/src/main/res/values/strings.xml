@@ -42,13 +42,13 @@
     <string name="barber">Barber:</string>
     <string name="haircut_time">Haircut time:</string>
     <string name="your_booking_information">Your Booking information</string>
-    <string name="address_textView">Strada Petre Ispirescu 36, Craiova</string>
+    <string name="address_textView">1</string>
     <string name="notification">Notification</string>
     <string name="book">Book</string>
     <string name="history">Historic</string>
-    <string name="david">David</string>
-    <string name="haircut_duration">1 hour</string>
-    <string name="mon_sat_9am_5pm">Mon-Sat 9am-5pm</string>
+    <string name="david">1</string>
+    <string name="haircut_duration">1</string>
+    <string name="mon_sat_9am_5pm">1</string>
     <string name="profile">Profile</string>
     <string name="log_out_button">OUT</string>
     <string name="logo_home_page">Logo Home Page</string>
@@ -73,4 +73,9 @@
     <string name="go_to_login">Go to Login</string>
     <string name="profile_last_name_textView">Last Name</string>
     <string name="profile_last_name_editText">Last Name Field</string>
+    <string name="date_picker_button">Pick Date</string>
+    <string name="pick_an_hour">Pick an hour</string>
+    <string name="phone">Phone:</string>
+    <string name="save_changes">Save changes</string>
+    <string name="admin_logout_button">Log out</string>
 </resources>

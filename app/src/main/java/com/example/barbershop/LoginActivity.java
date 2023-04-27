@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
         df.get().addOnSuccessListener(documentSnapshot -> {
             Log.d("TAG", "onSuccess" + documentSnapshot.getData());
 
-            if(documentSnapshot.getString("isUser") != null) {
+            if(Objects.equals(documentSnapshot.getString("isUser"), "1")) {
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 finish();
             }

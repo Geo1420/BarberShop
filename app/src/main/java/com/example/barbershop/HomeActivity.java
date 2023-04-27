@@ -14,7 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private TextView tvAddress, tvBarberName, tvProgram, tvHaircutTime;
+    private TextView tvAddress, tvBarberName, tvProgram, tvHaircutTime, tvPhone;
     private FirebaseAuth authUser;
     private static final String BARBERSHOP = "barbershop";
     private static final String BARBERSHOP_UID = "XmENPoxM7VEmLSq0u14v";
@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         tvBarberName = findViewById(R.id.barber_name);
         tvProgram = findViewById(R.id.program);
         tvHaircutTime = findViewById(R.id.haircut_time);
+        tvPhone = findViewById(R.id.phone_barbershop);
 
         DocumentReference documentReference = fStore.collection(BARBERSHOP).document(BARBERSHOP_UID);
         documentReference.get().addOnSuccessListener(documentSnapshot -> {
@@ -40,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
                 tvBarberName.setText(documentSnapshot.getString("barberName"));
                 tvProgram.setText(documentSnapshot.getString("program"));
                 tvHaircutTime.setText(documentSnapshot.getString("haircutTime"));
+                tvPhone.setText(documentSnapshot.getString("phone"));
             }else {
                 Toast.makeText(getApplicationContext(), "No such document in DB", Toast.LENGTH_SHORT).show();
             }

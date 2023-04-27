@@ -71,8 +71,6 @@ public class UserProfileActivity extends AppCompatActivity {
             } else {
                 Log.d(TAG, "No such document");
             }
-        }).addOnFailureListener(e -> {
-            // Handle any errors here
         });
         //Camera permission
         Button cameraButton = findViewById(R.id.profile_camera_button);

@@ -46,46 +46,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/reminder_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ListView
+            android:id="@+id/appointmentsListView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:layout_below="@+id/historic_head_textView"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:padding="6dp"
-            android:text="@string/appointment_textView"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:drawableStartCompat="@android:drawable/presence_away" />
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/date_appointment_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/historic_head_textView"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/reminder_textView"
-            android:padding="6dp"
-            android:text="@string/appointment_date_textView"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/time_appointment_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/historic_head_textView"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="38dp"
-            android:padding="6dp"
-            android:text="@string/appointment_time_textView"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
     </RelativeLayout>
 

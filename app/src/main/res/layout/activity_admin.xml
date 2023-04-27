@@ -4,6 +4,239 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminActivity">
+    tools:context=".AdminActivity"
+    android:background="@color/purple_200">
+
+    <Button
+        android:id="@+id/historic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/border"
+        android:drawableTop="@drawable/ic_history"
+        android:onClick="loadHistoricActivity"
+        android:text="@string/history"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateClickableBoundsCheck,UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/book_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:drawableTop="@drawable/ic_appoinment"
+        android:onClick="loadBookActivity"
+        android:text="@string/book"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UsingOnClickInXml" />
+
+    <ImageView
+        android:id="@+id/logo_imageView"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/border"
+        android:contentDescription="@string/logo_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/border"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <TextView
+            android:id="@+id/home_booking_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="@string/your_booking_information"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="?android:attr/actionModeFindDrawable" />
+
+        <TextView
+            android:id="@+id/address_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_booking_info"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/address"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/radiobutton_off_background" />
+
+        <EditText
+            android:id="@+id/admin_address_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_booking_info"
+            android:layout_alignStart="@+id/address_textView"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="5sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/address_textView"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:autofillHints=""
+            android:inputType="" />
+
+        <TextView
+            android:id="@+id/program_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address_textView"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/program"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/radiobutton_off_background" />
+
+        <EditText
+            android:id="@+id/admin_program_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address_textView"
+            android:layout_alignStart="@+id/program_textView"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="5sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/mon_sat_9am_5pm"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:autofillHints="" />
+
+        <EditText
+            android:id="@+id/admin_barberName_edittext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/admin_program_editText"
+            android:layout_alignStart="@+id/program_textView"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="-13dp"
+            android:layout_marginEnd="5sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/david"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/admin_haircut_time_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/admin_program_editText"
+            android:layout_alignStart="@+id/program_textView"
+            android:layout_marginStart="131dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="5sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/haircut_duration"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:autofillHints="" />
+
+        <TextView
+            android:id="@+id/barber_name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/program_textView"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/barber"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/radiobutton_off_background" />
+
+        <TextView
+            android:id="@+id/duration_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/barber_name_textView"
+            android:layout_marginTop="15sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/haircut_time"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/radiobutton_off_background" />
+        <TextView
+            android:id="@+id/phone_barberShop_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration_textView"
+            android:layout_marginTop="10sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/phone"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@android:drawable/radiobutton_off_background" />
+
+        <EditText
+            android:id="@+id/admin_phone_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/duration_textView"
+            android:layout_alignStart="@+id/program_textView"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="5sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="@string/mon_sat_9am_5pm"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:autofillHints="" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/saveChanges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:text="@string/save_changes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/admin_logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:text="@string/admin_logout_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveChanges"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

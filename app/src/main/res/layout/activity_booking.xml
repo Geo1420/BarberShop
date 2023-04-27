@@ -54,56 +54,43 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textStyle="bold" />
-        <TextView
-            android:id="@+id/select_date_textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/select_date_textView"
-            android:textSize="30sp"
-            android:layout_below="@+id/login_head_textView"
-            android:textAlignment="center"
-            />
-
         <Button
-            android:id="@+id/date_picker_button"
+            android:id="@+id/date_button"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/select_date_textView"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="80dp"
-            android:text="@string/select_date_button"
-            android:textAlignment="center"
-            android:textSize="30sp" />
-        <TextView
-            android:id="@+id/select_time_textView"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/select_time"
-            android:textSize="30sp"
-            android:layout_below="@+id/date_picker_button"
-            android:textAlignment="center"
-            />
-
-        <Button
-            android:id="@+id/time_picker_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/select_time_textView"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/login_head_textView"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="80dp"
-            android:text="@string/select_time_button"
-            android:textAlignment="center"
-            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/purple_border"
+            android:text="@string/date_picker_button"
             tools:ignore="VisualLintButtonSize" />
+
+        <TextView
+            android:id="@+id/chooseTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/pick_an_hour"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_below="@+id/date_button"
+            android:textStyle="bold"
+            android:textSize="24sp" />
+        <ListView
+            android:id="@+id/list_available_hours"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/chooseTime"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            tools:ignore="NestedScrolling" />
 
         <Button
             android:id="@+id/appointment_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/time_picker_button"
+            android:layout_below="@id/list_available_hours"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="70dp"
