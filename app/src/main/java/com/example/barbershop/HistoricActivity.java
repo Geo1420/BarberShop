@@ -18,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HistoricActivity extends AppCompatActivity {
 
@@ -54,6 +56,7 @@ public class HistoricActivity extends AppCompatActivity {
                     appointments.add(a);
                     // Do something with the data...
                 }
+                appointments = sortTimestampList(appointments);
                 adapter.addAll(appointments);
             } else {
                 // No documents were found that match the query
@@ -69,5 +72,15 @@ public class HistoricActivity extends AppCompatActivity {
             Intent homeIntent = new Intent(getApplicationContext(),HomeActivity.class);
             startActivity(homeIntent);
         });
+    }
+    public ArrayList<AppointmentModel> sortTimestampList(ArrayList<AppointmentModel> timestampList) {
+        // Define a custom Comparator to compare Timestamp values
+        Comparator<AppointmentModel> timestampComparator = (timestamp1, timestamp2) -> timestamp1.getAppointmentTime().compareTo(timestamp2.getAppointmentTime());
+
+        // Sort the list using the custom Comparator
+        Collections.sort(timestampList, timestampComparator);
+        Collections.reverse(timestampList);
+        // Return the sorted list
+        return timestampList;
     }
 }

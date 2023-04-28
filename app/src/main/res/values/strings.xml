@@ -78,4 +78,8 @@
     <string name="phone">Phone:</string>
     <string name="save_changes">Save changes</string>
     <string name="admin_logout_button">Log out</string>
+    <string name="all_appointments">All appointments</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="notifications_off">Notifications off </string>
+    <string name="notifications_on">Notifications ON </string>
 </resources>

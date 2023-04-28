@@ -44,10 +44,8 @@ public class LoginActivity extends AppCompatActivity {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
 
-            firebaseAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(authResult -> {
-                Toast.makeText(LoginActivity.this,"Logged in Successfully", Toast.LENGTH_SHORT).show();
-                checkUserAccessLevel(Objects.requireNonNull(authResult.getUser()).getUid());
-            }).addOnFailureListener(e -> Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show());
+            LoginAsyncTask task = new LoginAsyncTask(firebaseAuth,firebaseFirestore,getApplicationContext());
+            task.execute(email, password);
         }
     }
 

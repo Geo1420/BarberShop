@@ -3,23 +3,33 @@ package com.example.barbershop;
 import static android.content.ContentValues.TAG;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,10 +49,15 @@ public class UserProfileActivity extends AppCompatActivity {
     private String userID;
     private static final String USERS = "users";
     FirebaseFirestore fStore;
+
+    private NotificationManager mNotificationManager;
+    private static final int NOTIFICATION_ID = 0;
+    private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
         tvFirstName = findViewById(R.id.first_name_profile);
         tvLastName = findViewById(R.id.last_name_profile);
@@ -72,6 +87,43 @@ public class UserProfileActivity extends AppCompatActivity {
                 Log.d(TAG, "No such document");
             }
         });
+        //Notification vars
+        Intent notifyIntent = new Intent(this, AlarmReceive.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        PendingIntent notifyPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_ID, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        //Toggle button for notifications
+        boolean alarmUp = (PendingIntent.getBroadcast(this, NOTIFICATION_ID, notifyIntent, PendingIntent.FLAG_NO_CREATE) != null);
+        ToggleButton alarmToggle = findViewById(R.id.alarmToggle);
+        alarmToggle.setChecked(alarmUp);
+        alarmToggle.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                        String toastMessage;
+                        if (isChecked) {
+                            // Set the toast message for the "on" case.
+                            long repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES;
+                            long triggerTime = SystemClock.elapsedRealtime() + repeatInterval;
+
+                            // If the Toggle is turned on, set the repeating alarm with a 15 minute interval.
+                            if (alarmManager != null) {
+                                alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerTime, repeatInterval, notifyPendingIntent);
+                            }
+                            toastMessage = "Notifications ON!";
+                            deliverNotification(getApplicationContext());
+                        } else {
+                            // Set the toast message for the "off" case.
+                            mNotificationManager.cancelAll();
+                            toastMessage = "Notifications OFF";
+                            if (alarmManager != null) {
+                                alarmManager.cancel(notifyPendingIntent);
+                            }
+                        }
+
+                        // Show a toast to say the alarm is turned on or off.
+                        Toast.makeText(UserProfileActivity.this, toastMessage,Toast.LENGTH_SHORT).show();
+                    }
+                });
         //Camera permission
         Button cameraButton = findViewById(R.id.profile_camera_button);
         cameraButton.setOnClickListener(view -> {
@@ -90,7 +142,7 @@ public class UserProfileActivity extends AppCompatActivity {
             startActivity(homeIntent);
         });
 
-
+        createNotificationChannel();
     }
 
     @Override
@@ -130,5 +182,38 @@ public class UserProfileActivity extends AppCompatActivity {
         profileData.put("lastName",etLastName.getText().toString());
         profileData.put("phone", etPhone.getText().toString());
         documentReference.update(profileData).addOnSuccessListener(unused -> Toast.makeText(getApplicationContext(), "Changes saved!", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "Error updating the profile!", Toast.LENGTH_SHORT).show());
+    }
+    /**
+     * Creates a Notification channel, for OREO and higher.
+     */
+    public void createNotificationChannel() {
+        // Create a notification manager object.
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        // Notification channels are only available in OREO and higher.
+        // So, add a check on SDK version.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            // Create the NotificationChannel with all the parameters.
+            NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_ID, "Stand up notification", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setDescription("Notifies every day to check your appointments!");
+            mNotificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+    private void deliverNotification(Context context) {
+        Intent contentIntent = new Intent(context, HomeActivity.class);
+        PendingIntent contentPendingIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_stand_up)
+                .setContentTitle("Check Notification")
+                .setContentText("You should check your appointments!")
+                .setContentIntent(contentPendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true)
+                .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+        mNotificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 }

@@ -79,5 +79,11 @@ public class AdminActivity extends AppCompatActivity {
             Intent goToBookIntent = new Intent(getApplicationContext(), BookingActivity.class);
             startActivity(goToBookIntent);
         });
+
+        Button goToAppointments = findViewById(R.id.all_appointments_button);
+        goToAppointments.setOnClickListener(view -> {
+            Intent goToAppointmentsIntent = new Intent(getApplicationContext(), AppointmentsActivity.class);
+            startActivity(goToAppointmentsIntent);
+        });
     }
 }

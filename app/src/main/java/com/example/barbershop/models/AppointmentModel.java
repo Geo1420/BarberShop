@@ -15,6 +15,9 @@ public class AppointmentModel {
         this.userId = userId;
         this.appointmentTime = appointmentTime;
     }
+    public AppointmentModel(Timestamp appointmentTime) {
+        this.appointmentTime = appointmentTime;
+    }
     public  AppointmentModel() {}
 
     public String getUserId() {
